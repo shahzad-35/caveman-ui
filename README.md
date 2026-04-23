@@ -1,56 +1,72 @@
 # Caveman Compression — Web UI
 
-A browser-based UI for [caveman-compression](https://github.com/wilpel/caveman-compression) by William Peltomäki. Paste text, get the caveman-compressed version, see token savings live.
+A browser-based UI for the [caveman-compression](https://github.com/wilpel/caveman-compression) project by **William Peltomäki**.
 
 **Strip grammar. Keep facts. Save tokens.**
 
-This UI ships a JavaScript port of the NLP-based compressor (the `caveman_compress_nlp.py` script). Everything runs client-side — no server, no API key, no tracking.
+🔗 **Live:** https://caveman-compress.vercel.app
+
+Built by [**shahzad-35**](https://github.com/shahzad-35) as a front-end on top of the original Python project. This UI ships a JavaScript port of the NLP-based compressor (`caveman_compress_nlp.py`). Everything runs client-side — no server, no API key, no tracking.
 
 ---
 
-## Run it locally
+## Features
+
+- Paste text, get caveman-compressed output instantly
+- Live token count and reduction percentage
+- **Diff view** — see exactly which words got stripped
+- Four sample texts to try one-click
+- Copy-to-clipboard button
+- Runs entirely in the browser (no backend)
+
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open http://localhost:3000.
+Open http://localhost:3000.
 
-## Deploy to Vercel (free, one click)
+## Deploy
 
-The fastest path:
+This is a static Next.js site — deploys cleanly to **Vercel**, **Netlify**, or **Cloudflare Pages** with zero config.
 
-1. Push this folder to a GitHub repo.
-2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
-3. Click **Deploy**. No env vars needed. Done.
+**Vercel (one-click):**
+1. Push this repo to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. Click **Deploy**.
 
-Alternatively, from the CLI:
-
+**Vercel CLI:**
 ```bash
 npm install -g vercel
 vercel
 ```
 
-It's a static Next.js site (no serverless functions), so it will also deploy cleanly to **Netlify**, **Cloudflare Pages**, or **GitHub Pages** (if you run `next export` first).
-
 ## How the compression works
 
-See the upstream [SPEC.md](https://github.com/wilpel/caveman-compression/blob/main/SPEC.md). In short: remove anything an LLM can reliably reconstruct (articles, auxiliary verbs, filler adverbs, common connectives), keep everything it cannot (numbers, names, technical terms, constraints).
+See the upstream [SPEC.md](https://github.com/wilpel/caveman-compression/blob/main/SPEC.md) for the full ruleset.
 
-Expected reduction: 15–30% for English text, matching the Python NLP reference.
+Short version: remove what an LLM can reliably reconstruct (articles, auxiliary verbs, filler adverbs, common connectives); keep what it cannot (numbers, names, technical terms, constraints).
+
+Expected reduction: **15–30%** on English text, matching the Python NLP reference implementation.
 
 ## Project structure
 
 ```
 app/
-  layout.js     # Root layout + fonts
+  layout.js     # Root layout + Google Fonts
   page.js       # Main UI
   globals.css   # Styles (stone-tablet aesthetic)
 lib/
   compress.js   # JS port of caveman_compress_nlp.py
 ```
 
+## Credits
+
+- Original Python project: [wilpel/caveman-compression](https://github.com/wilpel/caveman-compression) by William Peltomäki
+- JS port + Web UI: [shahzad-35](https://github.com/shahzad-35)
+
 ## License
 
-MIT (matching upstream).
+MIT — same as the upstream project.

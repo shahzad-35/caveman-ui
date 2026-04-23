@@ -314,6 +314,16 @@ export default function Home() {
       <footer className="border-t border-[#2a2320]">
         <div className="max-w-6xl mx-auto px-6 md:px-10 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs mono text-stone-ash">
           <p>
+            UI by{' '}
+            <a
+              href="https://github.com/shahzad-35"
+              target="_blank"
+              rel="noreferrer"
+              className="text-stone-bone hover:text-stone-ochre underline decoration-dotted underline-offset-4"
+            >
+              shahzad-35
+            </a>
+            {' · '}
             Based on{' '}
             <a
               href="https://github.com/wilpel/caveman-compression"
